@@ -48,7 +48,7 @@ function getSession() {
 function requireSession() {
     const session = getSession();
     if (!session) {
-        location.href = 'index.html';
+        location.href = 'login.html';
         return null;
     }
     return session;
@@ -65,7 +65,7 @@ function logout() {
     try {
         sessionStorage.removeItem('demo_role');
     } catch { /* abaikan */ }
-    location.href = 'index.html';
+    location.href = 'login.html';
 }
 
 function navHtml(session, activeRoute) {
