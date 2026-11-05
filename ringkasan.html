@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ringkasan Kepala Sekolah - Sistem Sekolah (Demo)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><text y=%2220%22 font-size=%2220%22>🎓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { brand: {50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#166534',800:'#14532d',900:'#052e16'} },
+    fontFamily: { sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+  } } };
+</script>
+</head>
+<body class="h-full bg-zinc-50 font-sans antialiased">
+<div id="demo-banner" class="bg-zinc-900 py-1.5 text-center text-xs font-medium text-white/80"></div>
+<div class="flex h-[calc(100%-28px)]">
+  <aside id="app-sidebar-wrap" class="hidden w-64 shrink-0 border-r border-zinc-200 bg-white lg:flex lg:flex-col">
+    <div id="app-sidebar" class="flex h-full flex-col"></div>
+  </aside>
+  <div class="flex min-w-0 flex-1 flex-col">
+    <header id="app-topbar" class="flex items-center gap-3 border-b border-zinc-200 bg-white px-4 py-3"></header>
+    <main id="page-content" class="flex-1 overflow-y-auto p-4 sm:p-6"></main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/shell.js"></script>
+<script>
+  const session = renderShell('ringkasan.html');
+
+  const FLAGGED = [
+    { name: 'Rizki Hidayat', classroom: 'VII A', reason: 'Kehadiran 68% — di bawah batas 75%', tone: 'red' },
+    { name: 'Maya Kurniawan', classroom: 'IX A', reason: 'Nilai di bawah KKM pada 2 mata pelajaran', tone: 'amber' },
+    { name: 'Budi Pratama', classroom: 'VII A', reason: 'Kehadiran 71% — di bawah batas 75%', tone: 'red' },
+  ];
+
+  function statCard(label, value, sub) {
+    return `
+      <div class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+        <p class="text-sm text-zinc-500">${label}</p>
+        <p class="mt-2 text-4xl font-bold tabular-nums text-zinc-900">${value}</p>
+        <p class="mt-1 text-sm text-zinc-500">${sub}</p>
+      </div>`;
+  }
+
+  if (session) {
+    document.getElementById('page-content').innerHTML = `
+      <div class="flex flex-col gap-6">
+        <div>
+          <h1 class="text-xl font-bold text-zinc-900">Ringkasan Kepala Sekolah</h1>
+          <p class="mt-1 text-sm text-zinc-500">${SCHOOL.name} · ${SCHOOL.yearLabel} · ${SCHOOL.termLabel}</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">
+          ${statCard('Rata-rata kehadiran', '96%', 'seluruh kelas, batas sekolah 75%')}
+          ${statCard('Rata-rata nilai', '84,2', 'dari 15 mata pelajaran')}
+          ${statCard('Siswa aktif', STUDENTS.length, 'di 3 rombongan belajar')}
+        </div>
+
+        <div class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+          <p class="flex items-center gap-1.5 font-semibold text-zinc-900">
+            <iconify-icon icon="heroicons:exclamation-triangle" width="16" class="text-amber-500"></iconify-icon>
+            Siswa yang perlu perhatian
+          </p>
+          <p class="mt-0.5 text-sm text-zinc-500">Kehadiran di bawah batas, atau lemah di 2+ mata pelajaran pada semester berjalan.</p>
+          <div class="mt-4 flex flex-col divide-y divide-zinc-100">
+            ${FLAGGED.map((f) => `
+              <div class="flex items-center justify-between gap-3 py-3">
+                <div>
+                  <p class="font-medium text-zinc-900">${f.name}</p>
+                  <p class="text-sm text-zinc-500">Kelas ${f.classroom}</p>
+                </div>
+                <span class="shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${f.tone === 'red' ? 'bg-rose-50 text-rose-700' : 'bg-amber-50 text-amber-700'}">${f.reason}</span>
+              </div>`).join('')}
+          </div>
+        </div>
+      </div>`;
+  }
+</script>
+</body>
+</html>

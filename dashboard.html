@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beranda - Sistem Sekolah (Demo)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><text y=%2220%22 font-size=%2220%22>🎓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { brand: {50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#166534',800:'#14532d',900:'#052e16'} },
+        fontFamily: { sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+      },
+    },
+  };
+</script>
+</head>
+<body class="h-full bg-zinc-50 font-sans antialiased">
+<div id="demo-banner" class="bg-zinc-900 py-1.5 text-center text-xs font-medium text-white/80"></div>
+<div class="flex h-[calc(100%-28px)]">
+  <aside id="app-sidebar-wrap" class="hidden w-64 shrink-0 border-r border-zinc-200 bg-white lg:flex lg:flex-col">
+    <div id="app-sidebar" class="flex h-full flex-col"></div>
+  </aside>
+  <div class="flex min-w-0 flex-1 flex-col">
+    <header id="app-topbar" class="flex items-center gap-3 border-b border-zinc-200 bg-white px-4 py-3"></header>
+    <main id="page-content" class="flex-1 overflow-y-auto p-4 sm:p-6"></main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/shell.js"></script>
+<script>
+  const session = renderShell('dashboard.html');
+
+  const CARD_DEFS = [
+    { href: 'input-nilai.html', icon: 'pencil-square', title: 'Input Nilai', text: 'Isi nilai satu kelas sekaligus.', roles: ['admin', 'guru'] },
+    { href: 'rapor-kelas.html', icon: 'clipboard-document-check', title: 'Rapor Kelas Saya', text: 'Ketidakhadiran, catatan, ekskul, kokurikuler.', roles: ['admin', 'guru'] },
+    { href: 'cetak-rapor.html', icon: 'printer', title: 'Cetak Rapor', text: 'Cetak satu kelas sekali klik.', roles: ['admin'] },
+    { href: 'siswa.html', icon: 'users', title: 'Data Siswa', text: 'Tambah, ubah, atau impor dari Excel.', roles: ['admin'] },
+    { href: 'guru.html', icon: 'identification', title: 'Data Guru', text: 'Akun guru dibuat otomatis.', roles: ['admin'] },
+    { href: 'kelas.html', icon: 'building-library', title: 'Kelas', text: 'Wali kelas dan pembagian mengajar.', roles: ['admin'] },
+  ];
+
+  function cardsHtml() {
+    return CARD_DEFS.filter((c) => c.roles.includes(session.role)).map((c) => `
+      <div class="flex flex-col gap-2 rounded-xl border border-zinc-200 bg-white p-4 shadow-sm">
+        <div class="flex items-center gap-2">
+          <iconify-icon icon="heroicons:${c.icon}" width="18" class="text-brand-700"></iconify-icon>
+          <p class="font-semibold text-zinc-900">${c.title}</p>
+        </div>
+        <p class="text-sm text-zinc-500">${c.text}</p>
+        <a href="${c.href}" class="mt-1 inline-flex w-fit items-center gap-1 text-sm font-semibold text-brand-700 hover:text-brand-800">
+          Buka <iconify-icon icon="heroicons:arrow-right" width="14"></iconify-icon>
+        </a>
+      </div>`).join('');
+  }
+
+  function studentCallout() {
+    if (session.role !== 'siswa') return '';
+    return `
+      <div class="flex items-start gap-3 rounded-xl border border-brand-200 bg-brand-50 p-4">
+        <iconify-icon icon="heroicons:academic-cap" width="20" class="mt-0.5 shrink-0 text-brand-700"></iconify-icon>
+        <div class="text-sm text-brand-900">
+          <p class="font-semibold">Halaman siswa</p>
+          <p class="mt-1 text-brand-800/80">Nilai dan rapor Anda ada di menu <strong>Nilai Saya</strong> dan <strong>Rapor Saya</strong> di samping. Rapor baru terlihat setelah diterbitkan sekolah.</p>
+        </div>
+      </div>`;
+  }
+
+  if (session) {
+    document.getElementById('page-content').innerHTML = `
+      <div class="flex flex-col gap-6">
+        <div>
+          <h1 class="text-xl font-bold text-zinc-900">Selamat datang, ${session.name}</h1>
+          <p class="mt-1 text-sm text-zinc-500">${session.roleLabel} · ${SCHOOL.yearLabel} · ${SCHOOL.termLabel}</p>
+        </div>
+        ${studentCallout()}
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">${cardsHtml()}</div>
+      </div>`;
+  }
+</script>
+</body>
+</html>

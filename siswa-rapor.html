@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rapor Saya - Sistem Sekolah (Demo)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><text y=%2220%22 font-size=%2220%22>🎓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { brand: {50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#166534',800:'#14532d',900:'#052e16'} },
+    fontFamily: { sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+  } } };
+</script>
+</head>
+<body class="h-full bg-zinc-50 font-sans antialiased">
+<div id="demo-banner" class="bg-zinc-900 py-1.5 text-center text-xs font-medium text-white/80"></div>
+<div class="flex h-[calc(100%-28px)]">
+  <aside id="app-sidebar-wrap" class="hidden w-64 shrink-0 border-r border-zinc-200 bg-white lg:flex lg:flex-col">
+    <div id="app-sidebar" class="flex h-full flex-col"></div>
+  </aside>
+  <div class="flex min-w-0 flex-1 flex-col">
+    <header id="app-topbar" class="flex items-center gap-3 border-b border-zinc-200 bg-white px-4 py-3"></header>
+    <main id="page-content" class="flex-1 overflow-y-auto p-4 sm:p-6"></main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/shell.js"></script>
+<script>
+  const session = renderShell('siswa-rapor.html');
+
+  if (session) {
+    document.getElementById('page-content').innerHTML = `
+      <div class="flex flex-col gap-5">
+        <div>
+          <h1 class="text-xl font-bold text-zinc-900">Rapor Saya</h1>
+          <p class="mt-1 text-sm text-zinc-500">${SCHOOL.termLabel} ${SCHOOL.yearLabel} · diterbitkan ${SCHOOL.reportDate}</p>
+        </div>
+
+        <div class="flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+          <iconify-icon icon="heroicons:shield-check" width="18"></iconify-icon>
+          Rapor semester ini sudah diterbitkan oleh sekolah.
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <a href="rapor-halaman-1.html" target="_blank" class="group overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+            <div class="flex aspect-[4/5] items-center justify-center bg-zinc-50">
+              <iconify-icon icon="heroicons:document-text" width="48" class="text-zinc-300 transition group-hover:text-brand-600"></iconify-icon>
+            </div>
+            <div class="p-4">
+              <p class="font-semibold text-zinc-900">Halaman 1</p>
+              <p class="text-sm text-zinc-500">Identitas & Nilai Mata Pelajaran</p>
+            </div>
+          </a>
+          <a href="rapor-halaman-2.html" target="_blank" class="group overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+            <div class="flex aspect-[4/5] items-center justify-center bg-zinc-50">
+              <iconify-icon icon="heroicons:document-text" width="48" class="text-zinc-300 transition group-hover:text-brand-600"></iconify-icon>
+            </div>
+            <div class="p-4">
+              <p class="font-semibold text-zinc-900">Halaman 2</p>
+              <p class="text-sm text-zinc-500">Kokurikuler, Kehadiran & Catatan</p>
+            </div>
+          </a>
+        </div>
+      </div>`;
+  }
+</script>
+</body>
+</html>

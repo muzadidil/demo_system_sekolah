@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rapor Kelas Saya - Sistem Sekolah (Demo)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><text y=%2220%22 font-size=%2220%22>🎓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { brand: {50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#166534',800:'#14532d',900:'#052e16'} },
+    fontFamily: { sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+  } } };
+</script>
+</head>
+<body class="h-full bg-zinc-50 font-sans antialiased">
+<div id="demo-banner" class="bg-zinc-900 py-1.5 text-center text-xs font-medium text-white/80"></div>
+<div class="flex h-[calc(100%-28px)]">
+  <aside id="app-sidebar-wrap" class="hidden w-64 shrink-0 border-r border-zinc-200 bg-white lg:flex lg:flex-col">
+    <div id="app-sidebar" class="flex h-full flex-col"></div>
+  </aside>
+  <div class="flex min-w-0 flex-1 flex-col">
+    <header id="app-topbar" class="flex items-center gap-3 border-b border-zinc-200 bg-white px-4 py-3"></header>
+    <main id="page-content" class="flex-1 overflow-y-auto p-4 sm:p-6"></main>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/shell.js"></script>
+<script>
+  const session = renderShell('rapor-kelas.html');
+  const students = studentsIn('VIII A');
+  let tab = 'kehadiran';
+
+  const NOTE = 'Ananda menunjukkan semangat belajar yang baik dan disiplin hadir. Tingkatkan keberanian bertanya saat belum paham.';
+  const COCURRICULAR_DESC = 'Ananda aktif bekerja sama memilah sampah dan membuat ecobrick bersama kelompok. Perlu penguatan dalam menyampaikan hasil kegiatan di depan kelas.';
+
+  const TABS = [
+    { key: 'kehadiran', label: 'Ketidakhadiran' },
+    { key: 'catatan', label: 'Catatan Wali Kelas' },
+    { key: 'ekskul', label: 'Ekstrakurikuler' },
+    { key: 'kokurikuler', label: 'Kokurikuler' },
+  ];
+
+  function tabButtons() {
+    return TABS.map((t) => `
+      <button type="button" onclick="setTab('${t.key}')" class="rounded-lg px-3.5 py-2 text-sm font-semibold transition ${tab === t.key ? 'bg-brand-700 text-white' : 'bg-white text-zinc-600 ring-1 ring-zinc-200 hover:ring-brand-300'}">${t.label}</button>
+    `).join('');
+  }
+
+  function tabContent() {
+    if (tab === 'kehadiran') {
+      return `
+        <div class="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <table class="w-full text-left">
+            <thead class="bg-zinc-50">
+              <tr class="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+                <th class="px-3 py-2.5">Nama</th><th class="px-3 py-2.5 text-center">Sakit</th>
+                <th class="px-3 py-2.5 text-center">Izin</th><th class="px-3 py-2.5 text-center">Tanpa keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${students.map((s, i) => `
+                <tr class="border-b border-zinc-100 last:border-0">
+                  <td class="px-3 py-2.5 text-sm font-medium text-zinc-900">${s.name}</td>
+                  <td class="px-3 py-2 text-center"><input type="number" value="${i % 4}" class="w-14 rounded-md border border-zinc-300 px-2 py-1 text-center text-sm tabular-nums"></td>
+                  <td class="px-3 py-2 text-center"><input type="number" value="${i % 3}" class="w-14 rounded-md border border-zinc-300 px-2 py-1 text-center text-sm tabular-nums"></td>
+                  <td class="px-3 py-2 text-center"><input type="number" value="${i % 5 === 0 ? 1 : 0}" class="w-14 rounded-md border border-zinc-300 px-2 py-1 text-center text-sm tabular-nums"></td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-xs text-zinc-400">Dari ${SCHOOL.effectiveDays} hari efektif semester ini. Terisi otomatis dari Absensi Harian, bisa dikoreksi di sini.</p>`;
+    }
+
+    if (tab === 'catatan') {
+      return `
+        <div class="flex flex-col gap-3">
+          ${students.map((s, i) => `
+            <div class="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm">
+              <p class="mb-2 text-sm font-semibold text-zinc-900">${s.name}</p>
+              <textarea rows="2" class="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm text-zinc-700 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600" placeholder="Catatan wali kelas untuk siswa ini...">${i < 3 ? NOTE : ''}</textarea>
+            </div>`).join('')}
+        </div>`;
+    }
+
+    if (tab === 'ekskul') {
+      return `
+        <div class="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <table class="w-full text-left">
+            <thead class="bg-zinc-50">
+              <tr class="text-xs font-semibold uppercase tracking-wide text-zinc-500">
+                <th class="px-3 py-2.5">Nama</th><th class="px-3 py-2.5">Kegiatan</th>
+                <th class="px-3 py-2.5">Predikat</th><th class="px-3 py-2.5">Keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${students.map((s, i) => `
+                <tr class="border-b border-zinc-100 last:border-0">
+                  <td class="px-3 py-2.5 text-sm font-medium text-zinc-900">${s.name}</td>
+                  <td class="px-3 py-2.5 text-sm text-zinc-600">${i < 3 ? 'Pramuka' : '<span class="text-zinc-300">—</span>'}</td>
+                  <td class="px-3 py-2.5 text-sm font-semibold text-zinc-900">${i < 3 ? 'Baik' : ''}</td>
+                  <td class="px-3 py-2.5 text-sm text-zinc-500">${i < 3 ? 'Aktif mengikuti latihan rutin dan perkemahan' : ''}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>`;
+    }
+
+    return `
+      <div class="rounded-xl border border-zinc-200 bg-white p-5 shadow-sm">
+        <p class="text-sm text-zinc-900"><span class="text-zinc-500">Tema:</span> <strong>Madrasah Bebas Sampah Plastik</strong></p>
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs">
+          <span class="text-zinc-500">Dimensi profil lulusan</span>
+          <span class="rounded-full border border-brand-700 bg-brand-50 px-2.5 py-1 font-semibold text-brand-800">Kolaborasi</span>
+          <span class="rounded-full border border-brand-700 bg-brand-50 px-2.5 py-1 font-semibold text-brand-800">Kreativitas</span>
+          <span class="rounded-full border border-brand-700 bg-brand-50 px-2.5 py-1 font-semibold text-brand-800">Kewargaan</span>
+          <span class="ml-2 text-zinc-500">Panca Cinta</span>
+          <span class="rounded-full border border-brand-700 bg-brand-50 px-2.5 py-1 font-semibold text-brand-800">Cinta Lingkungan</span>
+        </div>
+      </div>
+      <div class="mt-3 flex flex-col gap-3">
+        ${students.slice(0, 3).map((s) => `
+          <div class="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm">
+            <p class="mb-2 text-sm font-semibold text-zinc-900">${s.name}</p>
+            <textarea rows="2" class="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm text-zinc-700 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600">${COCURRICULAR_DESC}</textarea>
+          </div>`).join('')}
+        <p class="text-xs text-zinc-400">7 siswa lain di kelas ini belum diisi deskripsi kokurikulernya pada data contoh ini.</p>
+      </div>`;
+  }
+
+  function render() {
+    document.getElementById('tab-bar').innerHTML = tabButtons();
+    document.getElementById('tab-content').innerHTML = tabContent();
+    inert('[data-inert]', 'Ini demo tampilan — fitur ini tidak aktif.');
+  }
+
+  function setTab(key) { tab = key; render(); }
+
+  if (session) {
+    document.getElementById('page-content').innerHTML = `
+      <div class="flex flex-col gap-5">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h1 class="text-xl font-bold text-zinc-900">Rapor Kelas Saya</h1>
+            <p class="mt-1 text-sm text-zinc-500">Kelas VIII A · Wali kelas ${CLASSROOMS['VIII A'].homeroom}</p>
+          </div>
+          <div class="flex gap-2">
+            <a href="rapor-halaman-1.html" data-inert data-msg="Cetak sampul belum tersedia di demo ini." class="rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50">Cetak Sampul</a>
+            <a href="rapor-halaman-1.html" class="rounded-lg bg-brand-700 px-3 py-2 text-sm font-semibold text-white hover:bg-brand-800">Cetak Rapor Kelas</a>
+          </div>
+        </div>
+
+        <div id="tab-bar" class="flex flex-wrap gap-2"></div>
+        <div id="tab-content"></div>
+      </div>`;
+
+    render();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rapor halaman 1: identitas dan nilai (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+body{margin:0;background:#525659}
+a{color:#166534}a:hover{color:#14532d}
+.sheet{width: 794px; margin: 24px auto; box-shadow: 0 10px 30px rgba(0,0,0,.35);}
+.back-link{position:fixed; top:14px; left:14px; z-index:10; font-family:'Plus Jakarta Sans',sans-serif; font-size:13px; font-weight:600; color:#fff; background:rgba(17,24,39,.65); padding:7px 12px; border-radius:999px; text-decoration:none;}
+@media print { .back-link{display:none} body{background:#fff} .sheet{margin:0; box-shadow:none} }
+</style>
+<a href="rapor-kelas.html" class="back-link">&larr; Kembali ke demo</a>
+<div class="sheet" style="width: 794px; height: 1123px; box-sizing: border-box; padding: 40px 48px 36px; display: flex; flex-direction: column; font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif; color: #111827; background: #ffffff">
+
+<header style="display: flex; align-items: center; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #166534">
+<div style="width: 56px; height: 56px; flex: none; box-sizing: border-box; border: 1.5px dashed #9CA3AF; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #6B7280">LOGO</div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4B5563">Madrasah Tsanawiyah</div>
+<div style="font-size: 20px; line-height: 24px; font-weight: 800; color: #111827">MTs Contoh Nusantara</div>
+<div style="font-size: 12px; line-height: 16px; color: #4B5563">Jl. Pendidikan No. 1, Kota Contoh</div>
+</div>
+<div style="flex: none; text-align: right; display: flex; flex-direction: column; gap: 2px">
+<div style="font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #166534">Laporan Hasil Belajar</div>
+<div style="font-size: 18px; line-height: 22px; font-weight: 800; color: #111827">Semester Ganjil</div>
+<div style="font-size: 12px; line-height: 16px; color: #4B5563">Tahun Pelajaran 2026/2027</div>
+</div>
+</header>
+
+<section style="margin-top: 16px; border: 1px solid #E5E7EB; border-radius: 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr))">
+<div style="padding: 8px 14px; border-right: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB">
+<div style="font-size: 12px; line-height: 16px; color: #4B5563">Nama peserta didik</div>
+<div style="margin-top: 2px; font-size: 14px; line-height: 18px; font-weight: 700; color: #111827">Ahmad Fauzan Ramadhan</div>
+</div>
+<div style="padding: 8px 14px; border-right: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB">
+<div style="font-size: 12px; line-height: 16px; color: #4B5563">NISN</div>
+<div style="margin-top: 2px; font-size: 14px; line-height: 18px; font-weight: 700; color: #111827; font-variant-numeric: tabular-nums">1234567890</div>
+</div>
+<div style="padding: 8px 14px; border-bottom: 1px solid #E5E7EB">
+<div style="font-size: 12px; line-height: 16px; color: #4B5563">Kelas</div>
+<div style="margin-top: 2px; font-size: 14px; line-height: 18px; font-weight: 700; color: #111827">VIII A</div>
+</div>
+<div style="padding: 8px 14px; border-right: 1px solid #E5E7EB">
+<div style="font-size: 12px; line-height: 16px; color: #4B5563">Wali kelas</div>
+<div style="margin-top: 2px; font-size: 14px; line-height: 18px; font-weight: 700; color: #111827">Rina Marlina, S.Pd.</div>
+</div>
+<div style="padding: 8px 14px; border-right: 1px solid #E5E7EB">
+<div style="font-size: 12px; line-height: 16px; color: #4B5563">Fase</div>
+<div style="margin-top: 2px; font-size: 14px; line-height: 18px; font-weight: 700; color: #111827">D</div>
+</div>
+<div style="padding: 8px 14px">
+<div style="font-size: 12px; line-height: 16px; color: #4B5563">Kurikulum</div>
+<div style="margin-top: 2px; font-size: 14px; line-height: 18px; font-weight: 700; color: #111827">Kurikulum Merdeka</div>
+</div>
+</section>
+
+<div style="margin-top: 18px; display: flex; align-items: center; justify-content: space-between">
+<h2 style="margin: 0; font-size: 15px; line-height: 20px; font-weight: 800; color: #111827"><span style="color: #166534">A.</span> Nilai Mata Pelajaran</h2>
+<div style="display: flex; gap: 16px; font-size: 12px; line-height: 16px; color: #4B5563">
+<span style="display: inline-flex; align-items: center; gap: 6px"><span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #166534"></span>Menonjol</span>
+<span style="display: inline-flex; align-items: center; gap: 6px"><span style="display: inline-block; width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Perlu penguatan</span>
+</div>
+</div>
+
+<table style="margin-top: 8px; width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 12px; line-height: 16px; color: #374151">
+<colgroup><col style="width: 26px"><col style="width: 196px"><col style="width: 80px"><col></colgroup>
+<thead>
+<tr style="background: #F3F4F6">
+<th scope="col" style="padding: 7px 4px; text-align: center; font-weight: 700; color: #374151; border-bottom: 1px solid #D1D5DB">No</th>
+<th scope="col" style="padding: 7px 10px; text-align: left; font-weight: 700; color: #374151; border-bottom: 1px solid #D1D5DB">Mata pelajaran</th>
+<th scope="col" style="padding: 7px 10px; text-align: left; font-weight: 700; color: #374151; border-bottom: 1px solid #D1D5DB">Nilai</th>
+<th scope="col" style="padding: 7px 10px; text-align: left; font-weight: 700; color: #374151; border-bottom: 1px solid #D1D5DB">Capaian kompetensi</th>
+</tr>
+</thead>
+<tbody>
+<tr><td colspan="4" style="padding: 4px 10px; background: #e8f0eb; color: #166534; font-weight: 700; border-bottom: 1px solid #E5E7EB">Pendidikan Agama Islam</td></tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">1</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Al-Qur&rsquo;an Hadis</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">88</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 88%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Membaca Q.S. Al-Mulk dengan tajwid yang tepat</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menghafal hadis tentang menuntut ilmu</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">2</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Akidah Akhlak</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">90</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 90%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Meneladani sifat jujur dan amanah</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menjelaskan dalil tentang sifat sabar</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">3</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Fikih</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">85</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 85%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Menjelaskan ketentuan puasa wajib dan sunah</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menghitung zakat fitrah dengan tepat</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">4</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Sejarah Kebudayaan Islam</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">87</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 87%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Menceritakan sejarah Dinasti Umayyah</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Mengaitkan peristiwa dengan tokohnya</div></td>
+</tr>
+<tr><td colspan="4" style="padding: 4px 10px; background: #e8f0eb; color: #166534; font-weight: 700; border-bottom: 1px solid #E5E7EB">Mata Pelajaran Umum</td></tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">5</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Pendidikan Pancasila</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">86</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 86%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Menjelaskan makna sila Pancasila dengan contoh</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menganalisis kasus hak dan kewajiban</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">6</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Bahasa Indonesia</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">89</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 89%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Menulis teks deskripsi yang runtut</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menyusun kalimat efektif dalam teks berita</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">7</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Bahasa Arab</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">80</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 80%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Memahami kosakata kegiatan sehari-hari</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menyusun kalimat sederhana secara lisan</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">8</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Matematika</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">82</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 82%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Menyelesaikan persamaan linear satu variabel</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menafsirkan grafik fungsi linear</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">9</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Ilmu Pengetahuan Alam</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">84</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 84%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Menjelaskan sistem pencernaan manusia</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Merancang percobaan sederhana tentang gaya</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">10</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Ilmu Pengetahuan Sosial</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">86</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 86%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Menjelaskan interaksi sosial di sekitar</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Membaca peta tematik dan legendanya</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">11</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Bahasa Inggris</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">83</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 83%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Memahami teks deskriptif tentang tempat</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Berbicara lancar dalam percakapan pendek</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">12</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Pendidikan Jasmani, Olahraga, dan Kesehatan</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">91</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 91%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Mempraktikkan teknik dasar bola voli</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menjaga konsistensi latihan kebugaran</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">13</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Informatika</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">92</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 92%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Menerapkan berpikir komputasional</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Mengolah data dengan lembar kerja</div></td>
+</tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">14</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Seni Budaya</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">88</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 88%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Membuat gambar ilustrasi dengan rapi</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Menjelaskan unsur rupa pada karya</div></td>
+</tr>
+<tr><td colspan="4" style="padding: 4px 10px; background: #e8f0eb; color: #166534; font-weight: 700; border-bottom: 1px solid #E5E7EB">Muatan Lokal</td></tr>
+<tr>
+<td style="padding: 5px 4px; text-align: center; vertical-align: top; color: #6B7280; border-bottom: 1px solid #E5E7EB">15</td>
+<td style="padding: 5px 10px; vertical-align: top; font-size: 13px; font-weight: 600; color: #111827; border-bottom: 1px solid #E5E7EB">Bahasa Daerah</td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="font-size: 15px; line-height: 18px; font-weight: 800; color: #111827; font-variant-numeric: tabular-nums">85</div><div style="margin-top: 6px; width: 56px; height: 4px; border-radius: 2px; background: #E5E7EB"><div style="width: 85%; height: 4px; border-radius: 2px; background: #166534"></div></div></td>
+<td style="padding: 5px 10px; vertical-align: top; border-bottom: 1px solid #E5E7EB"><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #166534"></span>Membaca cerita rakyat dengan lancar</div><div style="display: flex; align-items: center; gap: 7px"><span style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border-radius: 50%; border: 1.5px solid #166534"></span>Memakai tingkat tutur yang tepat</div></td>
+</tr>
+</tbody>
+</table>
+
+<footer style="margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; font-size: 12px; line-height: 16px; color: #6B7280">
+<span>Contoh tampilan · data fiktif</span>
+<span>Ahmad Fauzan Ramadhan · VIII A · Halaman 1 dari 2</span>
+</footer>
+
+</div>
+</body>
+</html>
